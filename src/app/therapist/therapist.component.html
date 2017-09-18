@@ -13,7 +13,14 @@
         <input type="text" #position>
       </div>
       <div>
-        <button type="button" (click)="addTherapist(name.value, position.value)">Submit</button>
+        <span>Clinic:</span>
+        <select #clinic>
+          <option value="">Not Selected</option>
+          <option *ngFor="let clinic of clinics" value="{{ clinic.id }}">{{ clinic.name }}</option>
+        </select>
+      </div>
+      <div>
+        <button type="button" (click)="addTherapist(name.value, position.value, clinic.value)">Submit</button>
       </div>
     </form>
   </div>
@@ -21,6 +28,7 @@
     <tr>
       <th>Name</th>
       <th>Position</th>
+      <th>Clinic</th>
       <th>Actions</th>
     </tr>
     <tr *ngFor="let therapist of therapists">
@@ -31,6 +39,10 @@
         {{ therapist.position }}
       </td>
       <td>
+        {{ getRelatedClinicName(therapist.id) }}
+      </td>
+      <td>
+        <div class="entity-action" routerLink="/therapist/{{ therapist.id }}">details</div>
         <div class="entity-action" (click)="deleteTherapist(therapist.id)">delete</div>
       </td>
     </tr>

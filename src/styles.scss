@@ -33,6 +33,7 @@ body {
       text-align: center;
       div.entity-action {
         cursor: pointer;
+        display: inline-block;
         padding: 7px;
         width: 25%;
         background-color: rgba(128, 128, 128, 0.25);
@@ -42,3 +43,12 @@ body {
     }
   }
 }
+
+.entity-details {
+  text-align: center;
+}
+
+.entity-details-go-back {
+  text-align: center;
+}
+

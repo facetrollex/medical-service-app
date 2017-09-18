@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { RoutingModule } from './routing/routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { PatientComponent } from './patient/patient.component';
 import { ClinicService } from './services/clinic.service';
 import { TherapistService } from './services/therapist.service';
 import { PatientService } from './services/patient.service';
+import { TherapistDetailComponent } from './therapist/therapist-detail/therapist-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,11 @@ import { PatientService } from './services/patient.service';
     ClinicComponent,
     TherapistComponent,
     PatientComponent,
+    TherapistDetailComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RoutingModule,
   ],
   providers: [LocalStorageService, ClinicService, TherapistService, PatientService],

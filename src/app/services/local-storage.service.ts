@@ -9,7 +9,7 @@ export class LocalStorageService {
     this.storage = localStorage;
   }
 
-  public read (table: string): Object {
+  public read (table: string): any {
     return JSON.parse(this.storage.getItem(table)) || [];
   }
 
