@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LocalStorageService {
-
   private storage: any;
 
   constructor () {
@@ -16,5 +15,4 @@ export class LocalStorageService {
   public write (table: string, data: any): void {
     this.storage.setItem(table, JSON.stringify(data));
   }
-
 }

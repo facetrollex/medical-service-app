@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { IEntity } from './entity.interface';
 import { Patient } from '../models/patient';
-
-import { patients } from '../data-mock/patient';
 import { PatientClinic } from '../models/patient-clinic';
 import { LocalStorageService } from './local-storage.service';
 
+import { patients } from '../data-mock/patient';
+
 @Injectable()
 export class PatientService implements IEntity {
-  public patients: Patient[];
-  public patientsClinic: PatientClinic[];
+  private patients: Patient[];
+  private patientsClinic: PatientClinic[];
+  readonly relationTable: string = 'patient-clinic';
 
   constructor(private localStorage: LocalStorageService) {
     this.patients = patients;
-    this.patientsClinic = this.localStorage.read('patient-clinic');
+    this.patientsClinic = this.localStorage.read(this.relationTable);
   }
 
   public getAll(): Patient[] {
@@ -30,10 +31,10 @@ export class PatientService implements IEntity {
     return Promise.resolve(this.patients);
   }
 
-  public linkToClinic(patientId: string, clinicId: string) {
+  public linkToClinic(patientId: string, clinicId: string): Promise<PatientClinic[]> {
     this.patientsClinic = this.patientsClinic.filter(item => item.patientId !== patientId);
     this.patientsClinic.push({ patientId, clinicId });
-    this.localStorage.write('patient-clinic', this.patientsClinic);
+    this.localStorage.write(this.relationTable, this.patientsClinic);
     return Promise.resolve(this.patientsClinic);
   }
 
@@ -41,13 +42,12 @@ export class PatientService implements IEntity {
     return this.patientsClinic;
   }
 
-  public getEntity(id: string) {
+  public getEntity(id: string): any {
     const patients: Patient[] = this.patients.filter(item => item.id === id);
     return Promise.resolve(patients[0] || {});
   }
 
   public getRelationsToClinic(): PatientClinic[] {
-    return this.patientsClinic;
+    return this.localStorage.read(this.relationTable);
   }
-
 }

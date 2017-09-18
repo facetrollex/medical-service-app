@@ -5,7 +5,6 @@ import { Clinic } from '../models/clinic';
 @Component({
   selector: 'app-clinic',
   templateUrl: './clinic.component.html',
-  styleUrls: ['./clinic.component.scss'],
 })
 export class ClinicComponent implements OnInit {
 

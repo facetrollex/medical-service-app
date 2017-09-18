@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { IEntity } from './entity.interface';
 import { LocalStorageService } from './local-storage.service';
 import { Therapist } from '../models/therapist';
+import { TherapistClinic } from '../models/therapist-clinic';
 
 import { therapists } from '../data-mock/therapist';
-import { TherapistClinic } from '../models/therapist-clinic';
 
 @Injectable()
 export class TherapistService implements IEntity {
   public therapists: Therapist[];
   public therapistsClinics: TherapistClinic[];
+  readonly relationTable: string = 'therapist-clinic';
 
   constructor(private localStorage: LocalStorageService) {
     this.therapists = therapists;
-    this.therapistsClinics = this.localStorage.read('therapist-clinic');
+    this.therapistsClinics = this.localStorage.read(this.relationTable);
   }
 
   public getAll(): Therapist[] {
@@ -30,20 +31,20 @@ export class TherapistService implements IEntity {
     return Promise.resolve(this.therapists);
   }
 
-  public getEntity(id: string) {
+  public getEntity(id: string): any {
     const therapists: Therapist[] = this.therapists.filter(item => item.id === id);
     return Promise.resolve(therapists[0] || {});
   }
 
-  public linkToClinic(therapistId: string, clinicId: string) {
-    let therapistClinic: TherapistClinic[] = this.localStorage.read('therapist-clinic');
+  public linkToClinic(therapistId: string, clinicId: string): Promise<TherapistClinic[]> {
+    let therapistClinic: TherapistClinic[] = this.localStorage.read(this.relationTable);
     therapistClinic = therapistClinic.filter(item => item.therapistId !== therapistId);
     therapistClinic.push({ therapistId, clinicId });
-    this.localStorage.write('therapist-clinic', therapistClinic);
+    this.localStorage.write(this.relationTable, therapistClinic);
     return Promise.resolve(therapistClinic);
   }
 
   public getRelationsToClinic(): TherapistClinic[] {
-    return this.therapistsClinics;
+    return this.localStorage.read(this.relationTable);
   }
 }

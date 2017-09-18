@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-
-import { clinics } from '../data-mock/clinic';
 import { Clinic } from '../models/clinic';
 import { IEntity } from './entity.interface';
+
+import { clinics } from '../data-mock/clinic';
 
 @Injectable()
 export class ClinicService implements IEntity {
@@ -25,5 +25,4 @@ export class ClinicService implements IEntity {
     this.clinics.push(entity);
     return Promise.resolve(this.clinics);
   }
-
 }

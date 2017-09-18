@@ -10,13 +10,9 @@ import { PatientClinic } from '../models/patient-clinic';
   templateUrl: './patient.component.html',
 })
 export class PatientComponent implements OnInit {
-
   public patients: Patient[];
-
   public clinics: Clinic[];
-
   public patientClinics: PatientClinic[];
-
   public showAddForm = false;
 
   constructor(private patientService: PatientService, private clinicService: ClinicService) { }
@@ -61,7 +57,6 @@ export class PatientComponent implements OnInit {
         return clinic[0].name;
       }
     }
-
     return 'Not Selected';
   }
 
