@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { ClinicComponent } from './clinic/clinic.component';
 import { TherapistComponent } from './therapist/therapist.component';
 import { PatientComponent } from './patient/patient.component';
+import { ClinicService } from './services/clinic.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { PatientComponent } from './patient/patient.component';
     BrowserModule,
     RoutingModule,
   ],
-  providers: [LocalStorageService],
+  providers: [LocalStorageService, ClinicService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

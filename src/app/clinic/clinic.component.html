@@ -1,3 +1,30 @@
-<p>
-  clinic works!
-</p>
+<div>
+  <div class="add-entity" (click)="showAddForm = !showAddForm">
+    Add Clinic
+  </div>
+  <div class="add-entity-form" *ngIf="showAddForm">
+    <form (keydown.enter)="$event.preventDefault()">
+      <div>
+        <span>Name:</span>
+        <input type="text" #name>
+      </div>
+      <div>
+        <button type="button" (click)="addClinic(name.value)">Submit</button>
+      </div>
+    </form>
+  </div>
+  <table border="1" class="entity-table">
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let clinic of clinics">
+      <td>
+        {{ clinic.name }}
+      </td>
+      <td>
+        <div class="entity-action" (click)="deleteClinic(clinic.id)">delete</div>
+      </td>
+    </tr>
+  </table>
+</div>

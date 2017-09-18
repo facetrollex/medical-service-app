@@ -2,3 +2,43 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.add-entity {
+  float: left;
+  background: rgba(128, 128, 128, 0.48);;
+  padding: 7px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.add-entity-form {
+  float: left;
+  width: 100%;
+  div {
+    width: 30%;
+    margin: 15px;
+  }
+  button {
+    width: 48%;
+    height: 35px;
+  }
+}
+
+.entity-table {
+  width: 100%;
+  border-style: hidden;
+  tr {
+    td {
+      text-align: center;
+      div.entity-action {
+        cursor: pointer;
+        padding: 7px;
+        width: 10%;
+        background-color: rgba(128, 128, 128, 0.25);
+        border-radius: 8px;
+        margin: 5px auto;
+      }
+    }
+  }
+}
