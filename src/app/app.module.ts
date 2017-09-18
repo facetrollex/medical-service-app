@@ -6,12 +6,18 @@ import { AppComponent } from './app.component';
 import { LocalStorageService } from './services/local-storage.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
+import { ClinicComponent } from './clinic/clinic.component';
+import { TherapistComponent } from './therapist/therapist.component';
+import { PatientComponent } from './patient/patient.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
     HomeComponent,
+    ClinicComponent,
+    TherapistComponent,
+    PatientComponent,
   ],
   imports: [
     BrowserModule,
