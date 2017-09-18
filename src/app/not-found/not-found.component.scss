@@ -1,0 +1,15 @@
+.not-found {
+  text-align: center;
+}
+
+.back-home {
+  text-align: center;
+
+  span {
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
