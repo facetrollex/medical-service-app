@@ -14,7 +14,7 @@ export class TherapistService implements IEntity {
 
   constructor(private localStorage: LocalStorageService) {
     this.therapists = therapists;
-    this.therapistsClinics = this.localStorage.read(this.relationTable);
+    this.therapistsClinics = this.getRelationsToClinic();
   }
 
   public getAll(): Therapist[] {
