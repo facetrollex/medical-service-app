@@ -11,7 +11,6 @@ import { TherapistClinic } from '../../models/therapist-clinic';
 @Component({
   selector: 'app-therapist-detail',
   templateUrl: './therapist-detail.component.html',
-  styleUrls: ['./therapist-detail.component.scss'],
 })
 export class TherapistDetailComponent implements OnInit {
 

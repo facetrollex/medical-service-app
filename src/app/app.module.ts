@@ -14,6 +14,7 @@ import { ClinicService } from './services/clinic.service';
 import { TherapistService } from './services/therapist.service';
 import { PatientService } from './services/patient.service';
 import { TherapistDetailComponent } from './therapist/therapist-detail/therapist-detail.component';
+import { PatientDetailsComponent } from './patient/patient-details/patient-details.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TherapistDetailComponent } from './therapist/therapist-detail/therapist
     TherapistComponent,
     PatientComponent,
     TherapistDetailComponent,
+    PatientDetailsComponent,
   ],
   imports: [
     BrowserModule,

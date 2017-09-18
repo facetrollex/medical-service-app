@@ -44,6 +44,6 @@ export class TherapistService implements IEntity {
   }
 
   public getRelationsToClinic(): TherapistClinic[] {
-    return this.localStorage.read('therapist-clinic');
+    return this.therapistsClinics;
   }
 }

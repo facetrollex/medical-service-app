@@ -1,0 +1,22 @@
+<div *ngIf="!patient">Loading...</div>
+<div *ngIf="patient" class="entity-details">
+  <span>Therapist information</span>
+  <div>
+    <div>
+      <span>Name</span>
+      <input type="text" [(ngModel)]="patient.name">
+    </div>
+    <div>
+      <span>Clinic</span>
+      <select [(ngModel)]="patientClinicId" (change)="linkToClinic()">
+        <option value="">Not selected</option>
+        <option *ngFor="let clinic of clinics" value="{{ clinic.id }}">{{ clinic.name }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="entity-details-go-back">
+  <button type="button" (click)="goBack()">
+    Go Back
+  </button>
+</div>

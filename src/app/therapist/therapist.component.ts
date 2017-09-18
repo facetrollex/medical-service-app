@@ -8,7 +8,6 @@ import { TherapistClinic } from '../models/therapist-clinic';
 @Component({
   selector: 'app-therapist',
   templateUrl: './therapist.component.html',
-  styleUrls: ['./therapist.component.scss'],
 })
 export class TherapistComponent implements OnInit {
 

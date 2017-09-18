@@ -7,6 +7,7 @@ import { ClinicComponent } from '../clinic/clinic.component';
 import { TherapistComponent } from '../therapist/therapist.component';
 import { PatientComponent } from '../patient/patient.component';
 import { TherapistDetailComponent } from '../therapist/therapist-detail/therapist-detail.component';
+import { PatientDetailsComponent } from '../patient/patient-details/patient-details.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'therapist', component: TherapistComponent },
   { path: 'therapist/:id', component: TherapistDetailComponent },
   { path: 'patient', component: PatientComponent },
+  { path: 'patient/:id', component: PatientDetailsComponent },
   { path: '**',  redirectTo: '404' },
 ];
 
