@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { clinics } from '../data-mock/clinic';
 import { Clinic } from '../models/clinic';
+import { IEntity } from './entity.interface';
 
 @Injectable()
-export class ClinicService {
+export class ClinicService implements IEntity {
   private clinics: Clinic[];
 
   constructor() {

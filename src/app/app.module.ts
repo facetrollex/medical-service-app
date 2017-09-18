@@ -10,6 +10,7 @@ import { ClinicComponent } from './clinic/clinic.component';
 import { TherapistComponent } from './therapist/therapist.component';
 import { PatientComponent } from './patient/patient.component';
 import { ClinicService } from './services/clinic.service';
+import { TherapistService } from './services/therapist.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { ClinicService } from './services/clinic.service';
     BrowserModule,
     RoutingModule,
   ],
-  providers: [LocalStorageService, ClinicService],
+  providers: [LocalStorageService, ClinicService, TherapistService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

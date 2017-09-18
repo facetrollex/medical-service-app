@@ -1,3 +1,38 @@
-<p>
-  therapist works!
-</p>
+<div>
+  <div class="add-entity" (click)="showAddForm = !showAddForm">
+    Add Therapist
+  </div>
+  <div class="add-entity-form" *ngIf="showAddForm">
+    <form (keydown.enter)="$event.preventDefault()">
+      <div>
+        <span>Name:</span>
+        <input type="text" #name>
+      </div>
+      <div>
+        <span>Position:</span>
+        <input type="text" #position>
+      </div>
+      <div>
+        <button type="button" (click)="addTherapist(name.value, position.value)">Submit</button>
+      </div>
+    </form>
+  </div>
+  <table border="1" class="entity-table">
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let therapist of therapists">
+      <td>
+        {{ therapist.name }}
+      </td>
+      <td>
+        {{ therapist.position }}
+      </td>
+      <td>
+        <div class="entity-action" (click)="deleteTherapist(therapist.id)">delete</div>
+      </td>
+    </tr>
+  </table>
+</div>
