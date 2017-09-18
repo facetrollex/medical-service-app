@@ -11,6 +11,7 @@ import { TherapistComponent } from './therapist/therapist.component';
 import { PatientComponent } from './patient/patient.component';
 import { ClinicService } from './services/clinic.service';
 import { TherapistService } from './services/therapist.service';
+import { PatientService } from './services/patient.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { TherapistService } from './services/therapist.service';
     BrowserModule,
     RoutingModule,
   ],
-  providers: [LocalStorageService, ClinicService, TherapistService],
+  providers: [LocalStorageService, ClinicService, TherapistService, PatientService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
