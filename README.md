@@ -1,4 +1,4 @@
-# Medical Service Simple Application
+# Medical Service Sample Application
 
 _Installation Guide:_
 1. clone repo
